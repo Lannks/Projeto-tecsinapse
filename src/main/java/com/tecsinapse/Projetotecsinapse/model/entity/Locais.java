@@ -16,8 +16,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "locais", schema = "tecsinapse")
-@Getter
-@Setter
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,7 +25,7 @@ public class Locais {
 	@Id
 	@Column(name = "id_local")
 	@GeneratedValue( strategy = GenerationType.IDENTITY)
-	private long id_local;
+	private long id;
 	
 	@Column(name = "nome")
 	private String nome;

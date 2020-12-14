@@ -5,10 +5,10 @@ import lombok.Data;
 
 @Data
 @Builder
-public class JogadorDTO {
-	
+public class LocaisDTO {
+
 	private String nome;
-	private String email;
-	private String senha;
+	private String cidade;
+	private String bairro;
 	
 }

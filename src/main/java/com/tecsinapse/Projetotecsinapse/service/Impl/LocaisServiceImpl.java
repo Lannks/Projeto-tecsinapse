@@ -1,11 +1,14 @@
 package com.tecsinapse.Projetotecsinapse.service.Impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.ExampleMatcher.StringMatcher;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,8 +42,20 @@ public class LocaisServiceImpl implements LocaisService {
 	@Override
 	@Transactional
 	public void deletar(Locais locais) {
-		Objects.requireNonNull(locais.getId_local());
+		Objects.requireNonNull(locais.getId());
 		repository.delete(locais);
+	}
+
+	@Override
+	public Optional<Locais> obterPorId(Long id) {
+		return repository.findById(id);
+	}
+
+	@Override
+	public List<Locais> getAll() {
+		List<Locais> Locais = new ArrayList<Locais>();
+		repository.findAll().forEach(local -> Locais.add(local));
+		return Locais;
 	}
 
 }
